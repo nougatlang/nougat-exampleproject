@@ -1,0 +1,8 @@
+// This file is optional.
+// Anything unset will be assigned a default value by the compiler.
+
+buildConfig {
+	debug {false} // default: false
+	buildFor {all} // default: all
+	mainObjectIndex {index.ng} // default: index.ng
+}

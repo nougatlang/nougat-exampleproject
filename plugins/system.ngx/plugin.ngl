@@ -1,0 +1,60 @@
+<root>
+	<meta>
+		<id>system</id>
+		<author>htlabs</author>
+		<use>all</use>
+	</meta>
+	
+	<categories>
+		<inputs />
+		<script />
+		<sub>
+			<set>
+				<inputs>
+					<o>var</o>
+					<o>value</o>
+				</inputs>
+				<def>
+					<script>
+						if (!nougat.varlock.includes(input.var.toString())) {
+							nougat.var[input.var.toString()] = input.value;
+						} else {
+							if (ngcomp.debug) {
+								console.log(ngcomp.dbgText + "Attempted to change " + input.var + " but variable is locked!");
+							}
+						}
+					</script>
+				</def>
+				<sub>
+					<mine>
+						<inputs>inherit</inputs>
+						<script>
+							nougat.var[input.var.toString()] = input.value;
+						</script>
+					</mine>
+					<lock>
+						<inputs>
+							<o>var</o>
+						</inputs>
+						<aliases>
+							<o>const</o>
+						</aliases>
+            					<script>
+            						if (!nougat.varlock.includes(input.var.toString())) {
+            							nougat.varlock.push(input.var.toString());
+            							
+            							if (ngcomp.debug) {
+            								console.log(ngcomp.dbgText + input.var + " is now locked.");
+            							}
+							} else {
+								if (ngcomp.debug) {
+									console.log(ngcomp.dbgText + input.var + " is already locked.");
+								}
+							}
+            					</script>
+          				</lock>
+        			</sub>
+			</set>
+		</sub>
+	</categories>
+</root>

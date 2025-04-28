@@ -1,0 +1,9 @@
+// This file is optional.
+// example imports file, will run automatically and globally import everything below:
+
+{*} from {mediaStage} // will import everything from mediaStage
+{mediaStage} // works the same as above
+{https://example.com/nougatplugins/foobar.ngx} // will assume importing everything from foobar.ngx unless categories are specified:
+{foo:bar}&{isnt:it:var:tho} from {yougetthepoint.com} // <- "&" is optional but a nice addition.
+
+// The compiler automatically adds "import " to every line in this file, so adding "import" manually is not required.
